@@ -1,5 +1,5 @@
 
-from models.Product import Product
+from CheckOut.models.product import Product
 
 
 class Cart:

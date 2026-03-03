@@ -1,6 +1,6 @@
 from unittest import TestCase
 
-from models.Product import Product
+from CheckOut.models.product import Product
 
 
 class ProductTest(TestCase):

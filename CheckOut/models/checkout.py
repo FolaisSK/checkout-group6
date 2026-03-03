@@ -1,6 +1,6 @@
 from datetime import datetime
 
-from models.cart import Cart
+from CheckOut.models.cart import Cart
 
 
 class Checkout:
