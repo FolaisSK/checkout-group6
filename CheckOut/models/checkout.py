@@ -27,8 +27,7 @@ class Checkout:
 
         print("\n$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$\n")
         print(f"THIS IS NOT A RECEIPT, PLEASE PAY {subtotal} FOR RECEIPT GENERATION")
-        amount = float(input(f"Attendant {name}, Enter amount paid: "))
-        self.generate_receipt(amount,cart)
+
 
 
 
