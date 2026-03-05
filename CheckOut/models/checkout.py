@@ -1,6 +1,6 @@
 from datetime import datetime
 
-from CheckOut.models.cart import Cart
+from models.cart import Cart
 
 
 class Checkout:
@@ -11,11 +11,13 @@ class Checkout:
     def generate_invoice(self, cart:Cart):
         name = input("Dear FUDA attendant, Enter your name: ")
         print(f"\n ---- Invoice (by Attendant: {name}) ----")
-        print("\t \tDate", self.date_and_time())
-        print("\n ----------------------------------\n")
+        print("\tDate", self.date_and_time())
+        print("\n-----------------------------------\n")
         products = cart.get_all_products()
+        print(f"{'Product Name':<20}|{'Product Price':>13}|{'Product Quantity':>16}")
+        print("-------------------------------------")
         for item in products:
-            print(f"{item.get_name()}: {item.get_price():.2f}")
+            print(f"{item.get_name():<20}|{item.get_price():>13.2f}|{item.get_quantity():>16}")
 
 
         subtotal = self.calculate_subtotal(cart)

@@ -1,5 +1,5 @@
 
-from CheckOut.models.product import Product
+from models.product import Product
 
 
 class Cart:
@@ -18,7 +18,6 @@ class Cart:
 
 
     def remove_form_cart(self,product_name:str):
-        product = None
         product = self.find_product_by_name(product_name)
 
         if product is not None:

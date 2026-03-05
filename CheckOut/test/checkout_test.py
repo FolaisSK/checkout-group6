@@ -1,7 +1,7 @@
 import unittest
 
-from CheckOut.models.cart import Cart
-from CheckOut.models.checkout import Checkout
+from models.cart import Cart
+from models.checkout import Checkout
 
 
 class MyTestCase(unittest.TestCase):

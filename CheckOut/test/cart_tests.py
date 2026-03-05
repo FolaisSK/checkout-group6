@@ -1,6 +1,6 @@
 import unittest
 
-from CheckOut.models.cart import Cart
+from models.cart import Cart
 
 
 class MyTestCase(unittest.TestCase):

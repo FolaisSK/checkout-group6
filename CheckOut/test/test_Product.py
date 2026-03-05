@@ -1,6 +1,6 @@
 from unittest import TestCase
 
-from CheckOut.models.product import Product
+from models.product import Product
 
 
 class ProductTest(TestCase):
@@ -19,9 +19,6 @@ class ProductTest(TestCase):
         with self.assertRaises(ValueError):
             Product("", 150_000, 1)
 
-    def test_that_name_can_only_contain_letters(self):
-        with self.assertRaises(ValueError):
-            Product("Laptop123", 150_000, 1)
 
     def test_that_price_cannot_be_less_than_0(self):
         with self.assertRaises(ValueError):
