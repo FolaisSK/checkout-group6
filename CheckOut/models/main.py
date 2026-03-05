@@ -16,8 +16,11 @@ def main_menu():
             product_name = input("Enter Product Name: ")
             product_price = float(input("Enter Product Price: "))
             product_quantity = int(input("Enter Product Quantity: "))
+
             new_cart.add_to_cart(product_name, product_price, product_quantity)
+
             shop = input("Do you want to checkout another cart or shop? (Yes/No): ").lower()
+
             validate_user_response(shop)
             if shop.lower() == "no":
                 isNo = False

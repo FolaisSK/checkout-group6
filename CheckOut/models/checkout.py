@@ -13,20 +13,27 @@ class Checkout:
         print(f"\n ---- Invoice (by Attendant: {name}) ----")
         print("\tDate", self.date_and_time())
         print("\n-----------------------------------\n")
+
         products = cart.get_all_products()
+
         print(f"{'Product Name':<20}|{'Product Price':>13}|{'Product Quantity':>16}")
         print("-------------------------------------")
+
         for item in products:
             print(f"{item.get_name():<20}|{item.get_price():>13.2f}|{item.get_quantity():>16}")
 
-
         subtotal = self.calculate_subtotal(cart)
+        vat = subtotal * self.VAT_RATE
+        total = self.calculate_total(cart)
+
         print("-------------------------------------")
         print(f"Subtotal: ${subtotal:.2f}")
+        print(f"VAT (7.5%): ${vat:.2f}")
+        print(f"TOTAL: ${total:.2f}")
         print("\n")
 
         print("\n$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$\n")
-        print(f"THIS IS NOT A RECEIPT, PLEASE PAY {subtotal} FOR RECEIPT GENERATION")
+        print(f"THIS IS NOT A RECEIPT, PLEASE PAY {total:.2f} FOR RECEIPT GENERATION")
 
 
 
@@ -56,7 +63,7 @@ class Checkout:
         print(f"\n--- Final Receipt ---\n")
         print("Date", self.date_and_time())
 
-        print("\n$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$\n")
+        print("\n$$$$$$$$$$$$$$$$$$$subtotal$$$$$$$$$$$$$$$$$$$$$\n")
         print(f"VAT (7.5%): ${self.calculate_VAT(cart):.2f}")
         print(f"TOTAL: ${total:.2f}")
         print(f"Paid: ${amount_paid:.2f}")
@@ -65,9 +72,13 @@ class Checkout:
 
 
     def calculate_balance(self, amount_paid,cart):
-        if amount_paid < self.calculate_total(cart):
+        total = self.calculate_total(cart)
+
+        if amount_paid < total:
           raise ValueError("Not enough money")
-        return amount_paid - self.calculate_total(cart)
+
+        balance = amount_paid - total
+        return balance
 
 
     def date_and_time(self):
